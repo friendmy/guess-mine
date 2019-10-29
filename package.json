@@ -1,0 +1,28 @@
+{
+	"name": "guess-mine",
+	"version": "1.0.0",
+	"description": "Realtime Drawing Game built with SocketIO, Gulp and Node",
+	"main": "index.js",
+	"scripts": {
+		"dev:server": "nodemon --exec babel-node src/server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/friendmy/guess-mine.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/friendmy/guess-mine/issues"
+	},
+	"homepage": "https://github.com/friendmy/guess-mine#readme",
+	"dependencies": {
+		"@babel/core": "^7.6.4",
+		"@babel/node": "^7.6.3",
+		"@babel/preset-env": "^7.6.3",
+		"express": "^4.17.1",
+		"nodemon": "^1.19.4",
+		"pug": "^2.0.4",
+		"socket.io": "^2.3.0"
+	}
+}

@@ -5,7 +5,8 @@ import minifyCSS from "gulp-csso";
 import del from "del";
 import bro from "gulp-browserify";
 import babel from "babelify";
-import { Transform } from "stream";
+
+sass.compiler = require("node-sass");
 
 const paths = {
   styles: {
@@ -22,8 +23,8 @@ const paths = {
 
 const clean = () => del(["src/static"]);
 
-const styles = () => {
-  return gulp
+const styles = () =>
+  gulp
     .src(paths.styles.src)
     .pipe(sass())
     .pipe(
@@ -34,7 +35,6 @@ const styles = () => {
     )
     .pipe(minifyCSS())
     .pipe(gulp.dest(paths.styles.dest));
-};
 
 const js = () =>
   gulp
@@ -55,7 +55,7 @@ const watchFiles = () => {
   gulp.watch(paths.js.watch, js);
 };
 
-const dev = gulp.series([clean, styles, js, watchFiles]);
+const dev = gulp.series(clean, styles, js, watchFiles);
 
 export const build = gulp.series(clean, styles, js);
 
